@@ -9,5 +9,5 @@ export const routes: Routes = [
     {path:'', component: CreateBlog },
     {path:'blog-list', component: BlogList},
     {path:'post-detail', component: PostDetail},
-    {path:'**', component:ErrorPage}
+    {path:'**', component: ErrorPage}
 ];

@@ -59,21 +59,67 @@ section {
 }
 
 .idea-area {
-    padding: 40px 20px;
+    padding:10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
-    border: 1px solid black;
+    height: auto;
+    /* border: 1px solid black; */
 }
 .idea-area input {
     width: 80%;
     padding: 10px;
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
     background: none;
     border: 1px solid #d89a64;
     color: darkgray;
     border-radius: 10px;
     font-size: 1rem;
+}
+.text-editor {
+    width: 80%;
+    height: auto;
+    border: 1px solid #d89a64;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    background: #fbeee1;
+}
+.text-editor textarea {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: justify;
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 1rem;
+    resize: none;
+}
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    border-bottom: 1px solid #d89a64;
+}
+.icons svg {
+    margin: 0 10px;
+    color: #d89a64;
+}
+.icons svg:hover {
+    cursor: pointer;
+    color: #f4855e;
+}
+.idea-area button {
+    width: 80%;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    background-color: #f4855e;
+    font-size: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
 }

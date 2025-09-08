@@ -9,5 +9,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './create-blog.css'
 })
 export class CreateBlog {
+  title = ""
+  content = ""
+  autoExpand() {
+    const contentArea = document.querySelector('.text-editor textarea')as HTMLElement;
+    const contentBox = document.querySelector('.content')as HTMLElement;
+    const titleArea = document.querySelector('.idea-area input')as HTMLElement;
+    const titlebox = document.querySelector('.title')as HTMLElement
+
+    contentArea.style.height = 'auto';
+    titleArea.style.height = 'auto',
+    contentArea.style.height =contentBox.scrollHeight + 50 + 'px';
+    titleArea.style.height =titlebox.scrollHeight + 50 + 'px';
+
+  }
+  
+
 
 }

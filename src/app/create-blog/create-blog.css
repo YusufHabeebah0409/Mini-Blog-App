@@ -1,0 +1,79 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    /* border: 1px solid black; */
+}
+
+nav h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #d89a64;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #d89a64;
+    font-weight: bold;
+}
+
+.links a:hover {
+    cursor: pointer;
+    color: #f4855e;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.auth-links svg {
+    width: 20px;
+    height: 20px;
+    color: #d89a64;
+}
+
+.auth-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #d89a64;
+    font-weight: bold;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.idea-area {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: 1px solid black;
+}
+.idea-area input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px; 
+    background: none;
+    border: 1px solid #d89a64;
+    color: darkgray;
+    border-radius: 10px;
+    font-size: 1rem;
+}

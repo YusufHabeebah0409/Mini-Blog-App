@@ -37,6 +37,16 @@ button {
     margin-top: 10px;
     font-weight: bold;
 }
+small {
+    text-align: center;
+}
+small a {
+    color: #f4855e;  
+    text-decoration: none;
+}
+small a:hover{
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 500px) {
     div {

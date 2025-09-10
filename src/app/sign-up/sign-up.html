@@ -1,12 +1,11 @@
 <main>
     <div>
         <h2>Sign Up</h2>
-        <input type="text" placeholder="Enter your name" required autofocus>
-        <input type="email" placeholder="Enter your email" required>
-        <input type="password" placeholder="Enter your password" required>
-        <input type="password" placeholder="Confirm  password" required>
-        <button>Sign Up</button>
+        <input type="text" placeholder="Enter your name" required autofocus [(ngModel)]="userName">
+        <input type="email" placeholder="Enter your email" required [(ngModel)]="userEmail">
+        <input type="password" placeholder="Enter your password" required [(ngModel)]="userPassword">
+        <input type="password" placeholder="Confirm  password" required [(ngModel)]="confirmUserPassword">
+        <button (click)="signUp()">Sign Up</button>
         <small>Already have an account? <a routerLink="/sign-in"> Sign In</a></small>
-
     </div>
 </main>

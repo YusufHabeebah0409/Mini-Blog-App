@@ -15,7 +15,7 @@ export class SignIn implements OnInit{
     const getUserDetails = localStorage.getItem('userDetails');
     if (getUserDetails) {
       this.userDetails = JSON.parse(getUserDetails);
-      console.log(this.userDetails);
+      // console.log(this.userDetails);
     }
   }
 

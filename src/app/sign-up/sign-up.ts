@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,15 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sign-up.css'
 })
 export class SignUp implements OnInit{
-
-  ngOnInit() {
-    const getUserDetails = localStorage.getItem('userDetails');
-    if (getUserDetails) {
-      const userDetails = JSON.parse(getUserDetails);
-      console.log(userDetails);
-    }
-  }
-  
+  constructor(private router: Router){}
 
   userName = ""
   userEmail = ""
@@ -27,11 +19,20 @@ export class SignUp implements OnInit{
 
   userDetails: Array<any> = []
 
+   ngOnInit() {
+    const getUserDetails = localStorage.getItem('userDetails');
+    if (getUserDetails) {
+      this.userDetails = JSON.parse(getUserDetails);
+      console.log(this.userDetails);
+    }
+  }
    
 
   signUp() {
     if(this.userName == "" || this.userEmail == "" || this.userPassword == "" || this.confirmUserPassword == ""){
       alert('All Input feild are required ')
+    }else if(this.userPassword != this.confirmUserPassword){
+      alert('Password and Confirm Password should be same')
     }else{
       this.userDetails.push({ username: this.userName, email: this.userEmail, password: this.userPassword, passwordConfirm: this.confirmUserPassword })
       localStorage.setItem('userDetails', JSON.stringify(this.userDetails))
@@ -40,12 +41,9 @@ export class SignUp implements OnInit{
       this.userEmail = ''
       this.userPassword = ''
       this.confirmUserPassword = ''
-
-      window.location.href = '/sign-in'
-
-    }
-
-           
+       
+      this.router.navigate(['/sign-in']);
+    }      
   }
 
 

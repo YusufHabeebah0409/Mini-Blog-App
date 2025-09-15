@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,6 +7,17 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sign-in.html',
   styleUrl: './sign-in.css'
 })
-export class SignIn {
+export class SignIn implements OnInit{
+  ngOnInit() {
+    const getUserDetails = localStorage.getItem('userDetails');
+    if (getUserDetails) {
+      const userDetails = JSON.parse(getUserDetails);
+      console.log(userDetails);
+    }
+  }
+
+  userEmail = ""
+  userPassword = ""
+  
 
 }

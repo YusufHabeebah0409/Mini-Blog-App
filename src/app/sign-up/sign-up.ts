@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
@@ -9,12 +9,25 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css'
 })
-export class SignUp {
+export class SignUp implements OnInit{
+
+  ngOnInit() {
+    const getUserDetails = localStorage.getItem('userDetails');
+    if (getUserDetails) {
+      const userDetails = JSON.parse(getUserDetails);
+      console.log(userDetails);
+    }
+  }
+  
+
   userName = ""
   userEmail = ""
   userPassword = ""
   confirmUserPassword = ""
+
   userDetails: Array<any> = []
+
+   
 
   signUp() {
     if(this.userName == "" || this.userEmail == "" || this.userPassword == "" || this.confirmUserPassword == ""){

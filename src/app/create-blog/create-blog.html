@@ -50,7 +50,7 @@
                 <textarea id="content" name="content" rows="10" [(ngModel)]="content" class="content"
                     (input)="autoExpand()"></textarea>
             </div>
-            <button>Post Blog </button>
+            <button (click)="postBlog()">Post Blog </button>
         </div>
     </section>
 </main>

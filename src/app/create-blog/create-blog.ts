@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-create-blog',
@@ -10,6 +10,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './create-blog.css'
 })
 export class CreateBlog implements OnInit {
+  constructor(private router: Router){}
   ngOnInit(){
     const getCreateBlog = localStorage.getItem('blog');
     if(getCreateBlog){
@@ -43,6 +44,7 @@ export class CreateBlog implements OnInit {
       localStorage.setItem('blog', JSON.stringify(this.createBlog))
       this.title = '';
       this.content = '';
+      this.router.navigate(['/blog-list'])
     }
 
   }

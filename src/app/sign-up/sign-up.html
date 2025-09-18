@@ -37,9 +37,15 @@
 
         }
 
+        <input type="password" placeholder="Enter your confirm password" formControlName="confirmPassword" />
+        @if(signupForm.get('confirmPassword')?.errors){
+            <p class="text-danger" *ngIf="signupForm.get('confirmPassword')?.hasError('pattern')">Password must containt at least 1 uppercase, 1 lowercase, 1 special character, a number and must not be less than 8 characters</p>
+        }
+
+
 
         <button (click)="signUp()">Sign Up</button>
 
-        <!-- <small>Already have an account? <a routerLink="/login"> Sign In</a></small> -->
+        <small>Already have an account? <a routerLink="/login"> Sign In</a></small>
     </form>
 </main>

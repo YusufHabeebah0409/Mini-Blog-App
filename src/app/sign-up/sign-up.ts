@@ -1,19 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators,  } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators, } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [RouterLink, CommonModule, FormsModule,ReactiveFormsModule ],
+  imports: [RouterLink, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css'
 })
-export class SignUp implements OnInit{
+export class SignUp implements OnInit {
 
   public builder = inject(FormBuilder);
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private snackBar: MatSnackBar) { }
 
   signupForm = this.builder.group({
     firstName: ['', [Validators.required, Validators.minLength(2)]],
@@ -23,27 +24,28 @@ export class SignUp implements OnInit{
     confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]]
   })
 
-  password = this.signupForm.get('password')?.value;
-  confirmPassword = this.signupForm.get('confirmPassword')?.value;
-
 
   userDetails: Array<any> = []
 
-   ngOnInit() {
+  ngOnInit() {
     const getUserDetails = localStorage.getItem('userDetails');
     if (getUserDetails) {
       this.userDetails = JSON.parse(getUserDetails);
       // console.log(this.userDetails);
     }
   }
-   
+
 
   signUp() {
-    if(this.password != this.confirmPassword){
+    const password = this.signupForm.get('password')?.value;
+    const confirmPassword = this.signupForm.get('confirmPassword')?.value;
+
+
+    if (password != confirmPassword) {
       alert('Password and Confirm Password should be same');
-    }else{
+    } else {
       const value = this.signupForm.value;
-       this.userDetails.push({
+      this.userDetails.push({
         firstName: value.firstName,
         lastName: value.lastName,
         email: value.email,
@@ -51,11 +53,20 @@ export class SignUp implements OnInit{
         confirmPassword: value.confirmPassword
       })
       localStorage.setItem('userDetails', JSON.stringify(this.userDetails));
-      this.router.navigate(['/sign-in'])
-    }      
+      this.signupForm.reset();
+      this.snackBar.open('Signup successful ✅', 'Close', {
+        duration: 1000,
+        horizontalPosition: 'left',
+        verticalPosition: 'top',
+      });
+      setTimeout(() => {
+        this.router.navigate(['/sign-in'])
+      }, 500);
+    }
+    }
+
+
+
+
+
   }
-
-
-
-
-}

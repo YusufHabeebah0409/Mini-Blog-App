@@ -42,7 +42,11 @@ export class SignUp implements OnInit {
 
 
     if (password != confirmPassword) {
-      alert('Password and Confirm Password should be same');
+      this.snackBar.open('Password and Confirm Password should be same ❌', 'Close', {
+      duration: 1000, 
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+    });
     } else {
       const value = this.signupForm.value;
       this.userDetails.push({

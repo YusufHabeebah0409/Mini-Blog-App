@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-create-blog',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, MatSnackBarModule],
   templateUrl: './create-blog.html',
   styleUrl: './create-blog.css'
 })
 export class CreateBlog implements OnInit {
-  constructor(private router: Router){}
+  constructor(private router: Router, private snackBar: MatSnackBar){}
   userLoggedIn: any = null;
   ngOnInit(){
     const currentUser = localStorage.getItem('currentUser');
@@ -25,7 +26,7 @@ export class CreateBlog implements OnInit {
     const getCreateBlog = localStorage.getItem('blog');
     if(getCreateBlog){
       this.createBlog = JSON.parse(getCreateBlog);
-      console.log(getCreateBlog);
+      // console.log(getCreateBlog);
     }
     
   }
@@ -54,7 +55,12 @@ export class CreateBlog implements OnInit {
       localStorage.setItem('blog', JSON.stringify(this.createBlog))
       this.title = '';
       this.content = '';
-      this.router.navigate(['/blog-list'])
+      this.snackBar.open('Blog Created Successfully ✅', 'Close', {
+          duration: 1000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top',
+        });
+      // this.router.navigate(['/blog-list'])
     }
 
   }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-blog-list',
@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './blog-list.html',
   styleUrl: './blog-list.css'
 })
-export class BlogList {
+export class BlogList implements OnInit {
+
+  ngOnInit() {
+     const getBlog = localStorage.getItem('blog');
+    if(getBlog){
+      this.createBlog = JSON.parse(getBlog);
+      console.log(getBlog);
+    }
+    
+  }
+
+  createBlog: Array<any> = []
 
 }

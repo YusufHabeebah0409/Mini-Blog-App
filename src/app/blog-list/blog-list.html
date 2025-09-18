@@ -1,3 +1,14 @@
 <main>
-    
+    @for (item of createBlog ; track $index) {
+    <div class="container">
+        <h2>All Blogs</h2>
+        <div class="card">
+            <div class="title">
+                <h3>{{ item.title }}</h3>
+            </div>
+            <p>{{ item.content }}</p>
+        </div>
+    </div>
+    }
+
 </main>

@@ -42,7 +42,9 @@ export class SignIn implements OnInit {
       const password = value.password;
 
       if (email === user.email && password === user.password) {
+        
         localStorage.setItem('currentUser', JSON.stringify(user));
+
         this.snackBar.open('Sign In Successful ✅' + user.firstName, 'Close', {
           duration: 1000,
           horizontalPosition: 'left',
@@ -59,9 +61,12 @@ export class SignIn implements OnInit {
 
 
     } else {
-      this.snackBar.open('Invalid email or password ❌', 'Close', {
-        duration: 1000
-      });
+      this.snackBar.open('Invalid email or password ❌' + user.firstName, 'Close', {
+          duration: 1000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top',
+        });
+
     }
   }
 

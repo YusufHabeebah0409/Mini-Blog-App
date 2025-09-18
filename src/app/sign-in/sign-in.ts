@@ -33,8 +33,8 @@ export class SignIn implements OnInit {
 
     const userEmail = this.signinForm.get('email')?.value;
     const userPassword = this.signinForm.get('password')?.value;
-    const username = this.signinForm.get('username')?.value;
-    const user = this.userDetails.find(user => user.email === userEmail && user.password === userPassword && user.username === username);
+    
+    const user = this.userDetails.find(user => user.email === userEmail && user.password === userPassword );
 
     if (user) {
       const value = this.signinForm.value;
@@ -42,7 +42,8 @@ export class SignIn implements OnInit {
       const password = value.password;
 
       if (email === user.email && password === user.password) {
-        this.snackBar.open('Sign In Successful ✅' + user.username, 'Close', {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.snackBar.open('Sign In Successful ✅' + user.firstName, 'Close', {
           duration: 1000,
           horizontalPosition: 'left',
           verticalPosition: 'top',

@@ -11,7 +11,17 @@ import { Router, RouterLink } from "@angular/router";
 })
 export class CreateBlog implements OnInit {
   constructor(private router: Router){}
+  userLoggedIn: any = null;
   ngOnInit(){
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      this.userLoggedIn = JSON.parse(currentUser);
+      console.log("Logged in user:", this.userLoggedIn);
+    } else {
+      this.router.navigate(['/sign-in']);
+      return;
+    }
+
     const getCreateBlog = localStorage.getItem('blog');
     if(getCreateBlog){
       this.createBlog = JSON.parse(getCreateBlog);
@@ -48,6 +58,7 @@ export class CreateBlog implements OnInit {
     }
 
   }
+ 
 
 
 

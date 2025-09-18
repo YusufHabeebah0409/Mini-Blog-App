@@ -1,11 +1,45 @@
 <main>
-    <div>
+    <form [formGroup]="signupForm">
         <h2>Sign Up</h2>
-        <input type="text" placeholder="Enter your name" required autofocus [(ngModel)]="userName">
-        <input type="email" placeholder="Enter your email" required [(ngModel)]="userEmail">
-        <input type="password" placeholder="Enter your password" required [(ngModel)]="userPassword">
-        <input type="password" placeholder="Confirm  password" required [(ngModel)]="confirmUserPassword">
+
+        <input type="text" placeholder="Enter your first name" formControlName="firstName" autofocus />
+        @if(signupForm.get('firstName')?.errors && signupForm.get('firstName')?.touched ){
+        <p class="text-danger" *ngIf="signupForm.get('firstName')?.hasError('minLength')">
+            First name cannot be less than 2 characters
+        </p>
+        <p class="text-danger" *ngIf="signupForm.get('firstName')?.hasError('required')">
+            First name is required
+        </p>
+        }
+
+        <input type="text" placeholder="Enter your last name" formControlName="lastName" />
+        @if(signupForm.get('lastName')?.errors &&
+        signupForm.get('lastName')?.touched ){
+        <p class="text-danger" *ngIf="signupForm.get('lastName')?.hasError('required')">
+            Last name is required
+        </p>
+        }
+
+        <input type="email" placeholder="Enter your email" formControlName="email" />
+         @if(signupForm.get('email')?.errors && signupForm.get('email')?.dirty ){
+            <p class="text-danger" *ngIf="signupForm.get('email')?.hasError('required')">
+            Email is required
+        </p>
+        <p class="text-danger" *ngIf="signupForm.get('email')?.hasError('email')">
+            Invalid email format
+        </p>
+        
+        }
+
+        <input type="password" placeholder="Enter your password" formControlName="password" />
+        @if(signupForm.get('password')?.errors){
+            <p class="text-danger" *ngIf="signupForm.get('password')?.hasError('pattern')">Password must containt at least 1 uppercase, 1 lowercase, 1 special character, a number and must not be less than 8 characters</p>
+
+        }
+
+
         <button (click)="signUp()">Sign Up</button>
-        <small>Already have an account? <a routerLink="/sign-in"> Sign In</a></small>
-    </div>
+
+        <!-- <small>Already have an account? <a routerLink="/login"> Sign In</a></small> -->
+    </form>
 </main>

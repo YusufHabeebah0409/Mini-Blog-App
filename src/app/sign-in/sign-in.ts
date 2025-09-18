@@ -1,16 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
-  imports: [RouterLink,CommonModule, FormsModule],
+  imports: [RouterLink, CommonModule, FormsModule, ReactiveFormsModule, MatSnackBarModule],
   templateUrl: './sign-in.html',
   styleUrl: './sign-in.css'
 })
-export class SignIn implements OnInit{
-  constructor(private router:Router){}
+export class SignIn implements OnInit {
+  public builder = inject(FormBuilder);
+
+  constructor(private router: Router, private snackBar: MatSnackBar) { }
+
+  signinForm = this.builder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
+  })
   ngOnInit() {
     const getUserDetails = localStorage.getItem('userDetails');
     if (getUserDetails) {
@@ -19,21 +27,40 @@ export class SignIn implements OnInit{
     }
   }
 
-  userEmail = ""
-  userPassword = ""
+
   userDetails: Array<any> = []
   signIn() {
-    const user = this.userDetails.find(user => user.email === this.userEmail && user.password === this.userPassword);
-    if (this.userEmail === '' || this.userPassword === '') {
-      alert('Please enter both email and password');
-    }else if(user) {
-      alert('Sign In Successful ✅' + user.username);
-      this.userEmail = '';
-      this.userPassword = '';
-      this.router.navigate(['/']);
-      
+
+    const userEmail = this.signinForm.get('email')?.value;
+    const userPassword = this.signinForm.get('password')?.value;
+    const username = this.signinForm.get('username')?.value;
+    const user = this.userDetails.find(user => user.email === userEmail && user.password === userPassword && user.username === username);
+
+    if (user) {
+      const value = this.signinForm.value;
+      const email = value.email;
+      const password = value.password;
+
+      if (email === user.email && password === user.password) {
+        this.snackBar.open('Sign In Successful ✅' + user.username, 'Close', {
+          duration: 1000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top',
+        });
+
+        this.signinForm.reset();
+
+        setTimeout(() => {
+          this.router.navigate(['/'])
+        }, 500);
+
+      }
+
+
     } else {
-      alert('Invalid email or password ❌');
+      this.snackBar.open('Invalid email or password ❌', 'Close', {
+        duration: 1000
+      });
     }
   }
 

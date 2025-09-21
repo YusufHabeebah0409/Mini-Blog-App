@@ -2,7 +2,7 @@
     <h2>All Blogs</h2>
     @for (item of createBlog ; track $index) {
     <div class="container">
-        <div class="card">
+        <div class="card" [routerLink]="['/post-detail', $index]" routerLinkActive="router-link-active">
             <div class="title">
                 <h3>{{ item.title }}</h3>
             </div>
@@ -10,7 +10,7 @@
             <p>
                 {{
                 item.content.split(' ').slice(0, 100).join(' ')
-                }}...  <span> <a [routerLink]="['/post-detail', item.id]">Read More</a></span>
+                }}...  <span> <a [routerLink]="['/post-detail', $index]">Read More</a></span>
             </p>
            
 

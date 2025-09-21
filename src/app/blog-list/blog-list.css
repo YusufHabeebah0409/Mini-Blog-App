@@ -6,9 +6,9 @@ main {
   position: relative;
 }
 .add-blog {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
 }
 .add-blog button {
     background-color: #f4855e;

@@ -1,1 +1,27 @@
-<p>my-blog works!</p>
+<main>
+    <h2>My  Blogs</h2>
+    @for (item of createBlog ; track $index) {
+    <div class="container">
+        <div class="card">
+            <div class="title">
+                <h3>{{ item.title }}</h3>
+            </div>
+            <!-- <p>{{ item.content }}</p> -->
+            <p>
+                {{
+                item.content.split(' ').slice(0, 100).join(' ')
+                }}...  
+            </p>
+           <div class="icons">
+            <button class="edit-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844l2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565l6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/></svg>
+            </button>
+            <button class="delete-btn" (click)="delNote($index)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M7 3h2a1 1 0 0 0-2 0M6 3a2 2 0 1 1 4 0h4a.5.5 0 0 1 0 1h-.564l-1.205 8.838A2.5 2.5 0 0 1 9.754 15H6.246a2.5 2.5 0 0 1-2.477-2.162L2.564 4H2a.5.5 0 0 1 0-1zm1 3.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0zM9.5 6a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-.5-.5"/></svg>
+            </button>
+           </div>
+
+        </div>
+    </div>
+    }
+</main>

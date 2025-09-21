@@ -1,0 +1,98 @@
+main {
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+}
+.add-blog {
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
+}
+.add-blog button {
+    background-color: #f4855e;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.card {
+  width: 100%;
+  border-radius: 10px;
+  background: #fbefe1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card p {
+  padding: 15px 20px;
+  text-align: justify;
+  line-height: 1.6;
+  color: #444;
+  font-size: 15px;
+}
+ span a {
+    color: #f4855e;
+    text-decoration: none;
+    font-weight: 600;
+}
+ span a:hover {
+    text-decoration: underline;
+}
+
+.title {
+  border-bottom: 1px solid #d89a64;
+}
+
+.title h3 {
+  padding: 12px 20px;
+  margin: 0;
+  font-size: 20px;
+  color: #2d2d2d;
+  font-weight: 600;
+}
+.icons{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  gap: 10px;
+}
+.icons button {
+    border: none;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.icons .edit-btn {
+    background-color: blue;
+    color: white;
+}
+.icons .delete-btn {
+    background-color: red;
+    color: white;
+}

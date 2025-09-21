@@ -9,11 +9,11 @@ import { SignIn } from './sign-in/sign-in';
 import { MyBlog } from './my-blog/my-blog';
 
 export const routes: Routes = [
-    {path:'', component: CreateBlog },
-    {path:'sign-up', component:SignUp},
-    {path: 'sign-in', component: SignIn},
-    {path:'blog-list', component: BlogList},
-    {path:'my-blog', component: MyBlog},
-    {path:'post-detail', component: PostDetail},
+    {path:'', component: BlogList, title: 'Blog List'},
+    {path:'create', component: CreateBlog, title: 'Create Blog'},
+    {path:'sign-up', component:SignUp, title: 'Sign Up'},
+    {path: 'sign-in', component: SignIn, title: 'Sign In'},
+    {path:'my-blog', component: MyBlog, title: 'My Blog'},
+    {path:'post-detail/:id', component: PostDetail, title: 'Post Detail'},
     {path:'**', component: ErrorPage}
 ];

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-blog-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './blog-list.html',
   styleUrl: './blog-list.css'
 })

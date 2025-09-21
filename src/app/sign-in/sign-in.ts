@@ -54,7 +54,7 @@ export class SignIn implements OnInit {
         this.signinForm.reset();
 
         setTimeout(() => {
-          this.router.navigate(['/'])
+          this.router.navigate(['/create'])
         }, 500);
 
       }

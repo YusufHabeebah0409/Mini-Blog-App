@@ -13,6 +13,9 @@ import { Router, RouterLink } from "@angular/router";
 export class CreateBlog implements OnInit {
   constructor(private router: Router, private snackBar: MatSnackBar) { }
   userLoggedIn: any = null;
+
+  menuOpen = false;
+
   ngOnInit() {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
@@ -64,24 +67,44 @@ export class CreateBlog implements OnInit {
         horizontalPosition: 'left',
         verticalPosition: 'top',
       });
-      this.router.navigate(['/blog-list'])
+      // this.router.navigate(['/blog-list'])
     }
 
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    const logOut = confirm("Are you sure you want to log out?");
+    
+    if (logOut === true) {
+      localStorage.removeItem('currentUser');
     this.router.navigate(['/sign-in']);
     this.snackBar.open('Logged out successfully 🚪', 'Close', {
       duration: 1500,
       horizontalPosition: 'left',
       verticalPosition: 'top',
     });
+
+    }
+    
   }
 
+  openNav() {
+    const panel = document.getElementById("mySidepanel");
+    if (panel) {
+      panel.style.width = "350px";
+    }
+  }
 
-
-
-
+  closeNav() {
+    const panel = document.getElementById("mySidepanel");
+    if (panel) {
+      panel.style.width = "0";
+    }
+  }
 
 }
+
+
+
+
+

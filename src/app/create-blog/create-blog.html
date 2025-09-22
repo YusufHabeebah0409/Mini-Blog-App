@@ -1,6 +1,30 @@
 <main>
     <nav>
         <h3>Create Blog Post</h3>
+
+        <div class="mobile">
+            <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+                <a routerLink="/my-blog">My Blog</a>
+                <a routerLink="/">All Blogs</a>
+                <a>
+                    <ng-container *ngIf="userLoggedIn; else signInLink">
+                        <span>👋 Welcome {{ userLoggedIn.firstName }} </span>
+                    </ng-container>
+
+                    <ng-template #signInLink>
+                        <a routerLink="sign-in"><span>Sign In</span></a>
+                    </ng-template>
+                </a>
+                <a (click)="logout()" style="color: red;">Log Out</a>
+
+            </div>
+
+            <button class="openbtn" (click)="openNav()">&#9776; </button>
+        </div>
+
+
+
         <div class="links">
             <a routerLink="/my-blog">My Blog</a>
             <a routerLink="/">All Blog</a>

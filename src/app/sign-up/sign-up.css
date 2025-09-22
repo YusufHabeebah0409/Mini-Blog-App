@@ -48,9 +48,9 @@ small a:hover{
     text-decoration: underline;
 }
 
-@media screen and (max-width: 500px) {
-    div {
-        width: 80%;
+@media (max-width: 500px) {
+    form {
+        width: 90%;
     }
 
 }

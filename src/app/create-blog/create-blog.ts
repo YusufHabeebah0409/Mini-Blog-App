@@ -11,9 +11,9 @@ import { Router, RouterLink } from "@angular/router";
   styleUrl: './create-blog.css'
 })
 export class CreateBlog implements OnInit {
-  constructor(private router: Router, private snackBar: MatSnackBar){}
+  constructor(private router: Router, private snackBar: MatSnackBar) { }
   userLoggedIn: any = null;
-  ngOnInit(){
+  ngOnInit() {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.userLoggedIn = JSON.parse(currentUser);
@@ -24,11 +24,11 @@ export class CreateBlog implements OnInit {
     }
 
     const getCreateBlog = localStorage.getItem('blog');
-    if(getCreateBlog){
+    if (getCreateBlog) {
       this.createBlog = JSON.parse(getCreateBlog);
       // console.log(getCreateBlog);
     }
-    
+
   }
 
 
@@ -49,10 +49,10 @@ export class CreateBlog implements OnInit {
   postBlog() {
     if (this.title === '' || this.content === '') {
       this.snackBar.open('This field cannot be empty', 'Close', {
-          duration: 1000,
-          horizontalPosition: 'left',
-          verticalPosition: 'top',
-        });
+        duration: 1000,
+        horizontalPosition: 'left',
+        verticalPosition: 'top',
+      });
 
     } else {
       this.createBlog.push({ title: this.title, content: this.content })
@@ -60,16 +60,24 @@ export class CreateBlog implements OnInit {
       this.title = '';
       this.content = '';
       this.snackBar.open('Blog Created Successfully ✅', 'Close', {
-          duration: 1000,
-          horizontalPosition: 'left',
-          verticalPosition: 'top',
-        });
+        duration: 1000,
+        horizontalPosition: 'left',
+        verticalPosition: 'top',
+      });
       this.router.navigate(['/blog-list'])
     }
 
   }
- 
 
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/sign-in']);
+    this.snackBar.open('Logged out successfully 🚪', 'Close', {
+      duration: 1500,
+      horizontalPosition: 'left',
+      verticalPosition: 'top',
+    });
+  }
 
 
 

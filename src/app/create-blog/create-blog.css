@@ -41,7 +41,7 @@ nav h3 {
 .auth-links svg {
     width: 20px;
     height: 20px;
-    color: #d89a64;
+    color: #f4855e;
 }
 
 .auth-links a {
@@ -59,7 +59,7 @@ section {
 }
 
 .idea-area {
-    padding:10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,16 +68,18 @@ section {
     height: auto;
     /* border: 1px solid black; */
 }
+
 .idea-area input {
     width: 80%;
     padding: 10px;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
     background: none;
     border: 1px solid #d89a64;
     color: black;
     border-radius: 10px;
     font-size: 1rem;
 }
+
 .text-editor {
     width: 80%;
     height: auto;
@@ -87,6 +89,7 @@ section {
     margin-bottom: 10px;
     background: #fbeee1;
 }
+
 .text-editor textarea {
     width: 100%;
     padding: 15px 20px;
@@ -98,21 +101,25 @@ section {
     font-size: 1rem;
     resize: none;
 }
+
 .icons {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:10px;
+    padding: 10px;
     border-bottom: 1px solid #d89a64;
 }
+
 .icons svg {
     margin: 0 10px;
     color: #d89a64;
 }
+
 .icons svg:hover {
     cursor: pointer;
     color: #f4855e;
 }
+
 .idea-area button {
     width: 80%;
     padding: 10px 20px;
@@ -122,4 +129,27 @@ section {
     font-size: 1rem;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.log-out {
+    background: #dc2626 ;
+    color: #fff;
+    display: flex;
+    gap: 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.log-out a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+}
+.log-out:hover {
+  background:   #ef4444;
 }

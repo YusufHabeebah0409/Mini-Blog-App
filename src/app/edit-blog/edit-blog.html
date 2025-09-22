@@ -1,1 +1,15 @@
-<p>edit-blog works!</p>
+<main class="edit-blog">
+  <div class="card">
+    <h2>Edit Blog Post</h2>
+
+    <div class="form-group">
+      <input type="text" value="{{ title }}" [(ngModel)]="title" />
+    </div>
+
+    <div class="form-group">
+      <textarea rows="10" [(ngModel)]="content">{{ content }}</textarea>
+    </div>
+
+    <button class="save-btn" (click)="editBlog()">💾 Save Changes</button>
+  </div>
+</main>

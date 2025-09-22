@@ -1,0 +1,61 @@
+.edit-blog {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.card {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fbefe1; /* soft beige background */
+  border-radius: 12px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #1f2937;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  border: 1px solid #d89a64;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #b8753a;
+  box-shadow: 0 0 5px rgba(184, 117, 58, 0.5);
+}
+
+.save-btn {
+  background: #d89a64;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.save-btn:hover {
+  background: #b8753a;
+}

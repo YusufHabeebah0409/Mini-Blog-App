@@ -48,7 +48,11 @@ export class CreateBlog implements OnInit {
 
   postBlog() {
     if (this.title === '' || this.content === '') {
-      alert('This field cannot be empty')
+      this.snackBar.open('This field cannot be empty', 'Close', {
+          duration: 1000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top',
+        });
 
     } else {
       this.createBlog.push({ title: this.title, content: this.content })
@@ -60,7 +64,7 @@ export class CreateBlog implements OnInit {
           horizontalPosition: 'left',
           verticalPosition: 'top',
         });
-      // this.router.navigate(['/blog-list'])
+      this.router.navigate(['/blog-list'])
     }
 
   }

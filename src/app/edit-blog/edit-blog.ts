@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-edit-blog',
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule,  FormsModule, MatSnackBarModule],
   templateUrl: './edit-blog.html',
   styleUrl: './edit-blog.css'
 })
 export class EditBlog implements OnInit {
-  constructor(private activeRouter: ActivatedRoute) { }
+  constructor(private activeRouter: ActivatedRoute, private router:Router, private snackBar: MatSnackBar) { }
 
   title = '';
   content = '';
@@ -44,10 +45,14 @@ export class EditBlog implements OnInit {
 
       localStorage.setItem('blog', JSON.stringify(allBlogs));
 
-      alert('✅ Blog updated successfully!');
+      this.snackBar.open('✅ Blog updated successfully!', 'Close', {
+          duration: 1000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top',
+        });
 
-      // Redirect back to post detail or blog list
-      // this.router.navigate(['/blog-list']);
+      
+      this.router.navigate(['/my-blog']);
     }
   }
 }

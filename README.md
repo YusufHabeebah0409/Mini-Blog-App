@@ -84,7 +84,7 @@ http://localhost:4200/
 ```
 
 ---
-**Usage**
+**🗝️ Usage**
 
 1. **Sign Up** as a new user (your data will be stored in localStorage).
 2. **Sign In** using your credentials.
@@ -95,7 +95,7 @@ http://localhost:4200/
 
 ---
 
-**Future Improvements**
+**🌟Future Improvements**
 
 * Replace localStorage with a real backend (Node.js + MongoDB / Firebase).
 * Add a rich text editor for blog content.
@@ -106,7 +106,7 @@ http://localhost:4200/
 
 ---
 
-**Author: Habeebah Ojuolape**
+**👩‍💻 Author: Habeebah Ojuolape**
 
 * [GitHub](https://github.com/YusufHabeebah0409)
 * [LinkedIn](www.linkedin.com/in/habeebahojuolape)

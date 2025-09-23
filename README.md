@@ -1,59 +1,114 @@
-# MiniBlogApp
+# 📝 Mini Blog Web App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+A simple blog application built with **Angular** where users can:
 
-## Development server
+* Create, read, edit, and delete blog posts
+* Sign up and sign in with local storage authentication
+* View all blogs from different users
+* Manage their own blogs separately
 
-To start a local development server, run:
+This project is built for learning purposes and uses **localStorage** as a database substitute.
+
+---
+
+## 🚀 Features
+
+✅ User authentication (Sign Up / Sign In)
+✅ Create new blog posts with a title and content
+✅ View all blogs and individual blog details
+✅ Edit existing blog posts
+✅ Delete blogs from the "My Blog" page
+✅ Responsive design with mobile navigation (hamburger menu)
+✅ Author information displayed on each blog post
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend Framework:** Angular
+* **Language:** TypeScript
+* **UI/Styling:** HTML, CSS
+* **Storage:** Browser LocalStorage
+* **Extras:** Angular Material (SnackBar for notifications)
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+src/
+ ├── app/
+ │   ├── auth/
+ │   │   ├── sign-in/
+ │   │   ├── sign-up/
+ │   ├── blog/
+ │   │   ├── create-blog/
+ │   │   ├── blog-list/
+ │   │   ├── my-blog/
+ │   │   ├── post-detail/
+ │   │   ├── edit-blog/
+ │   ├── app-routing.module.ts
+ │   ├── app.component.ts
+ │   └── app.module.ts
+ ├── assets/
+ └── styles.css
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/mini-blog.git
+cd mini-blog
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Run the development server**
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser and visit:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
+**Usage**
 
-```bash
-ng generate --help
-```
+1. **Sign Up** as a new user (your data will be stored in localStorage).
+2. **Sign In** using your credentials.
+3. Create blogs from the **Create Blog** page.
+4. View all blogs under **All Blogs**.
+5. Manage your own blogs under **My Blog** (Edit/Delete available).
+6. Log out anytime from the navigation bar.
 
-## Building
+---
 
-To build the project run:
+**Future Improvements**
 
-```bash
-ng build
-```
+* Replace localStorage with a real backend (Node.js + MongoDB / Firebase).
+* Add a rich text editor for blog content.
+* Implement user profile pages.
+* Enable image uploads in blogs.
+* Add likes & comments feature.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**Author: Habeebah Ojuolape**
 
-```bash
-ng test
-```
+* [GitHub](https://github.com/YusufHabeebah0409)
+* [LinkedIn](www.linkedin.com/in/habeebahojuolape)
+* [Twitter](https://x.com/Habeebahpe)
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

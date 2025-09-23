@@ -12,7 +12,7 @@
                 item.content.split(' ').slice(0, 100).join(' ')
                 }}...  <span> <a [routerLink]="['/post-detail', $index]">Read More</a></span>
             </p>
-            <div class="author"> Author: {{author.firstName}} </div>
+            <div class="author"> Author: {{item.authorName}} </div>
         </div>
     </div>
     }

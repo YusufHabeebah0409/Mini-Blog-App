@@ -49,28 +49,63 @@ export class CreateBlog implements OnInit {
 
   }
 
-  postBlog() {
-    if (this.title === '' || this.content === '') {
-      this.snackBar.open('This field cannot be empty', 'Close', {
-        duration: 1000,
-        horizontalPosition: 'left',
-        verticalPosition: 'top',
-      });
+  
+  // postBlog() {
+  //   if (this.title === '' || this.content === '') {
+  //     this.snackBar.open('This field cannot be empty', 'Close', {
+  //       duration: 1000,
+  //       horizontalPosition: 'left',
+  //       verticalPosition: 'top',
+  //     });
 
-    } else {
-      this.createBlog.push({ title: this.title, content: this.content })
-      localStorage.setItem('blog', JSON.stringify(this.createBlog))
-      this.title = '';
-      this.content = '';
-      this.snackBar.open('Blog Created Successfully ✅', 'Close', {
-        duration: 1000,
-        horizontalPosition: 'left',
-        verticalPosition: 'top',
-      });
+  //   } else {
+  //     this.createBlog.push({ title: this.title, content: this.content })
+  //     localStorage.setItem('blog', JSON.stringify(this.createBlog))
+  //     this.title = '';
+  //     this.content = '';
+  //     this.snackBar.open('Blog Created Successfully ✅', 'Close', {
+  //       duration: 1000,
+  //       horizontalPosition: 'left',
+  //       verticalPosition: 'top',
+  //     });
       // this.router.navigate(['/blog-list'])
-    }
+    // }
 
+  // }
+
+  postBlog() {
+  if (this.title === '' || this.content === '') {
+    this.snackBar.open('This field cannot be empty', 'Close', {
+      duration: 1000,
+      horizontalPosition: 'left',
+      verticalPosition: 'top',
+    });
+  } else {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    const newBlog = {
+      title: this.title,
+      content: this.content,
+      authorId: currentUser.email,      // unique user id (use email or id)
+      authorName: currentUser.firstName, // name to display
+      createdAt: new Date()
+    };
+
+    this.createBlog.push(newBlog);
+    localStorage.setItem('blog', JSON.stringify(this.createBlog));
+
+    this.title = '';
+    this.content = '';
+
+    this.snackBar.open('Blog Created Successfully ✅', 'Close', {
+      duration: 1000,
+      horizontalPosition: 'left',
+      verticalPosition: 'top',
+    });
+    this.router.navigate(['/']);
   }
+}
+
 
   logout() {
     const logOut = confirm("Are you sure you want to log out?");
